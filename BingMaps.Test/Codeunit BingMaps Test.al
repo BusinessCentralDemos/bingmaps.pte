@@ -73,7 +73,7 @@ codeunit 70131 "BingMaps Test"
         Customer.Insert();
         Customer.Name := 'Freddy Kristiansen';
         Customer.Modify();
-        Assert.IsTrue(BingMapsCustomer.Get('freddyk'), 'Geocode record wasn''t created');
+        Assert.IsTrue(BingMapsCustomer.Get('freddydk'), 'Geocode record wasn''t created');
     end;
 
     [Test]
