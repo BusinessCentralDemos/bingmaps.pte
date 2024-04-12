@@ -12,7 +12,8 @@
   "UpdateDependencies": true,
   "ApplicationDependency": "21.0.0.0",
   "ALDoc": {
-    "ContinuousDeployment": true
+    "ContinuousDeployment": true,
+    "maxReleases": 0
   },
   "DeployToDIRPROD": {
     "continuousDeployment": false
