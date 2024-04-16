@@ -31,6 +31,7 @@ codeunit 74120 "BingMaps Geocode"
     var
         BingMapsCustomer: Record "BingMaps Customer";
     begin
+        //My comment
         if BingMapsCustomer.Get(xRec."No.") then
             BingMapsCustomer.Rename(Rec."No.");
     end;
