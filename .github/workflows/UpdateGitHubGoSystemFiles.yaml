@@ -79,8 +79,11 @@ jobs:
           directCommit: '${{ github.event.inputs.directCommit }}'
           downloadLatest: ${{ github.event.inputs.downloadLatest }}
           eventName: ${{ github.event_name }}
+          GH_TOKEN: ${{ github.token }}
         run: |
-          $errorActionPreference = "Stop"; $ProgressPreference = "SilentlyContinue"; Set-StrictMode -Version 2.0
+          $errorActionPreference = "Stop";
+          $ProgressPreference = "SilentlyContinue";
+          Set-StrictMode -Version 2.0
           $directCommit = $ENV:directCommit
           $downloadLatest = $ENV:downloadLatest
           Write-Host $ENV:eventName
