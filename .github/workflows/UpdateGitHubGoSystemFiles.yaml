@@ -16,7 +16,7 @@ on:
         type: boolean
         default: false
   schedule:
-    - cron: '0,10,20,30,40,50 * * * *'
+    - cron: '0,5,10,15,20,25,30,35,40,45,50,55 * * * *'
 
 permissions:
   contents: read
@@ -31,6 +31,7 @@ env:
 
 jobs:
   UpdateALGoSystemFiles:
+    name: 'Update AL-Go System Files'
     needs: [ ]
     runs-on: [ windows-latest ]
     steps:
@@ -87,6 +88,7 @@ jobs:
 
       - name: Update AL-Go system files (scheduled trigger - try direct commit first)
         if: github.event_name == 'schedule'
+        continue-on-error: true
         uses: freddydk/AL-Go/Actions/CheckForUpdates@lowhanging
         with:
           shell: powershell
