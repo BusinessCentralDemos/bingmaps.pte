@@ -16,7 +16,7 @@ on:
         type: boolean
         default: false
   schedule:
-    - cron: '* * * * *'
+    - cron: '0,10,20,30,40,50 * * * *'
 
 permissions:
   contents: read
@@ -75,7 +75,7 @@ jobs:
             Add-Content -Encoding UTF8 -Path $env:GITHUB_ENV -Value "templateUrl=$templateUrl"
           }
 
-      - name: Update AL-Go system files (manual trigger)
+      - name: Update AL-Go system files (manual trigger x)
         if: github.event_name == 'workflow_dispatch'
         uses: freddydk/AL-Go/Actions/CheckForUpdates@lowhanging
         with:
