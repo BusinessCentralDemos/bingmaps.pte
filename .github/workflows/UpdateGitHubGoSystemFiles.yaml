@@ -16,7 +16,7 @@ on:
         type: boolean
         default: false
   schedule:
-    - cron: '0,5,10,15,20,25,30,35,40,45,50,55 * * * *'
+    - cron: '* * * * *'
 
 permissions:
   contents: read
@@ -86,7 +86,7 @@ jobs:
           templateUrl: ${{ env.templateUrl }}
           directCommit: ${{ github.event.inputs.directCommit }}
 
-      - name: Update AL-Go system files (scheduled trigger - try direct commit first)
+      - name: Update AL-Go system files (scheduled trigger - try direct commit)
         if: github.event_name == 'schedule'
         continue-on-error: true
         uses: freddydk/AL-Go/Actions/CheckForUpdates@lowhanging
