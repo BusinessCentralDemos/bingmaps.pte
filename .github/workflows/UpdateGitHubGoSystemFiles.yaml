@@ -75,7 +75,7 @@ jobs:
             Add-Content -Encoding UTF8 -Path $env:GITHUB_ENV -Value "templateUrl=$templateUrl"
           }
 
-      - name: Update AL-Go system files (manual trigger x)
+      - name: Update AL-Go system files (manual trigger)
         if: github.event_name == 'workflow_dispatch'
         uses: freddydk/AL-Go/Actions/CheckForUpdates@lowhanging
         with:
@@ -99,7 +99,7 @@ jobs:
           directCommit: true
 
       - name: Update AL-Go system files (scheduled trigger - try pull request)
-        if: failure() && github.event_name == 'schedule'
+        if: env.UpdateError != '' && github.event_name == 'schedule'
         uses: freddydk/AL-Go/Actions/CheckForUpdates@lowhanging
         with:
           shell: powershell
@@ -109,6 +109,13 @@ jobs:
           templateUrl: ${{ env.templateUrl }}
           directCommit: false
 
+      - name: Update AL-Go system files (scheduled trigger - try pull request)
+        if: env.UpdateError != ''
+        run: |
+          $errorActionPreference = "Stop"; $ProgressPreference = "SilentlyContinue"; Set-StrictMode -Version 2.0
+          Write-Host "::ERROR::$env:UpdateError"
+          exit 1
+  
       - name: Finalize the workflow
         if: always()
         uses: freddydk/AL-Go/Actions/WorkflowPostProcess@lowhanging
