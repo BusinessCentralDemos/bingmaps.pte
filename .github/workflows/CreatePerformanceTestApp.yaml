@@ -55,7 +55,7 @@ jobs:
     runs-on: [ ubuntu-latest ]
     steps:
       - name: Dump Workflow Information
-        uses: freddydk/AL-Go/Actions/DumpWorkflowInfo@lowhanging
+        uses: freddydk/AL-Go/Actions/DumpWorkflowInfo@releasenotes
         with:
           shell: pwsh
 
@@ -64,19 +64,19 @@ jobs:
 
       - name: Initialize the workflow
         id: init
-        uses: freddydk/AL-Go/Actions/WorkflowInitialize@lowhanging
+        uses: freddydk/AL-Go/Actions/WorkflowInitialize@releasenotes
         with:
           shell: pwsh
           eventId: "DO0102"
 
       - name: Read settings
-        uses: freddydk/AL-Go/Actions/ReadSettings@lowhanging
+        uses: freddydk/AL-Go/Actions/ReadSettings@releasenotes
         with:
           shell: pwsh
 
       - name: Read secrets
         id: ReadSecrets
-        uses: freddydk/AL-Go/Actions/ReadSecrets@lowhanging
+        uses: freddydk/AL-Go/Actions/ReadSecrets@releasenotes
         with:
           shell: pwsh
           gitHubSecrets: ${{ toJson(secrets) }}
@@ -84,7 +84,7 @@ jobs:
           useGhTokenWorkflowForPush: '${{ github.event.inputs.useGhTokenWorkflow }}'
 
       - name: Creating a new test app
-        uses: freddydk/AL-Go/Actions/CreateApp@lowhanging
+        uses: freddydk/AL-Go/Actions/CreateApp@releasenotes
         with:
           shell: pwsh
           token: ${{ steps.ReadSecrets.outputs.TokenForPush }}
@@ -100,7 +100,7 @@ jobs:
 
       - name: Finalize the workflow
         if: always()
-        uses: freddydk/AL-Go/Actions/WorkflowPostProcess@lowhanging
+        uses: freddydk/AL-Go/Actions/WorkflowPostProcess@releasenotes
         with:
           shell: pwsh
           eventId: "DO0102"
