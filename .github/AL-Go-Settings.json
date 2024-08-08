@@ -12,12 +12,5 @@
   "useCompilerFolder": true,
   "SkipUpgrade": true,
   "ApplicationDependency": "21.0.0.0",
-  "ALDoc": {
-    "ContinuousDeployment": true,
-    "maxReleases": 0
-  },
-  "DeployToDIRPROD": {
-    "continuousDeployment": false
-  },
   "templateSha": "a2e7b2b642e34ab2bf1f2894d07304be071c3cdb"
 }
