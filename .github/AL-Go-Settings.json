@@ -9,6 +9,7 @@
   "githubRunner": "windows-latest",
   "githubRunnerShell": "pwsh",
   "UpdateDependencies": true,
+  "useCompilerFolder": true,
   "ApplicationDependency": "21.0.0.0",
   "ALDoc": {
     "ContinuousDeployment": true,
