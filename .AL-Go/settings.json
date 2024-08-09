@@ -7,7 +7,7 @@
   "testFolders": [
     "BingMaps.Test"
   ],
-  "RepoVersion": "6.4",
+  "RepoVersion": "7.0",
   "artifact": "https://bcartifacts.azureedge.net/sandbox/24.4.22295.22576/us",
   "applicationDependency": "21.0.0.0"
 }
