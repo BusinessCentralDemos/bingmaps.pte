@@ -12,6 +12,12 @@
   "useCompilerFolder": true,
   "SkipUpgrade": true,
   "ApplicationDependency": "21.0.0.0",
+  "Environments": [
+    "My"
+  ],
+  "DeployToMy" : {
+    "EnvironmentType": "Test"
+  },
   "unusedALGoSystemFiles": [
     "AddExistingAppOrTestApp.yaml",
     "CreateApp.yaml",
