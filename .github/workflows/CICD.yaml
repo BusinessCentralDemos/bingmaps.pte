@@ -318,8 +318,17 @@ jobs:
           deliveryTarget: ${{ matrix.deliveryTarget }}
           artifacts: '.artifacts'
 
-  PostProcess:
+  CustomJob-PostProcess:
     needs: [ Initialization, Build, Deploy, Deliver, DeployALDoc ]
+    if: (!success())
+    runs-on: [ ubuntu-latest ]
+    steps:
+      - name: My PostProcess
+        run: |
+          Write-Host "Post process"
+
+  PostProcess:
+    needs: [ Initialization, Build, Deploy, Deliver, DeployALDoc, CustomJob-PostProcess ]
     if: (!cancelled())
     runs-on: [ ubuntu-latest ]
     steps:
