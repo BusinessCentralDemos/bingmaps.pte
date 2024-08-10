@@ -12,5 +12,12 @@
   "useCompilerFolder": true,
   "SkipUpgrade": true,
   "ApplicationDependency": "21.0.0.0",
+  "unusedALGoSystemFiles": [
+    "AddExistingAppOrTestApp.yaml",
+    "CreateApp.yaml",
+    "CreatePerformanceTestApp.yaml",
+    "CreateTestApp.yaml",
+    "cloudDevEnv.ps1"
+  ],
   "templateSha": "a2e7b2b642e34ab2bf1f2894d07304be071c3cdb"
 }
