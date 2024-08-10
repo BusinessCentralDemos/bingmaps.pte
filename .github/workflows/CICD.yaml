@@ -318,15 +318,6 @@ jobs:
           deliveryTarget: ${{ matrix.deliveryTarget }}
           artifacts: '.artifacts'
 
-  CustomJob-PostProcess:
-    needs: [ Initialization, Build, Deploy, Deliver, DeployALDoc ]
-    if: (!success())
-    runs-on: [ ubuntu-latest ]
-    steps:
-      - name: My PostProcess
-        run: |
-          Write-Host "Post process"
-
   PostProcess:
     needs: [ Initialization, Build, Deploy, Deliver, DeployALDoc, CustomJob-PostProcess ]
     if: (!cancelled())
@@ -344,3 +335,12 @@ jobs:
           shell: pwsh
           telemetryScopeJson: ${{ needs.Initialization.outputs.telemetryScopeJson }}
           currentJobContext: ${{ toJson(job) }}
+
+  CustomJob-PostProcess:
+    needs: [ Initialization, Build, Deploy, Deliver, DeployALDoc ]
+    if: (!success())
+    runs-on: [ ubuntu-latest ]
+    steps:
+      - name: My PostProcess
+        run: |
+          Write-Host "Post process"
