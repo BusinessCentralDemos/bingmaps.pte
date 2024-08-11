@@ -337,6 +337,7 @@ jobs:
           currentJobContext: ${{ toJson(job) }}
 
   CustomJob-CreateBuildTag:
+    name: Create Build Tag
     needs: [ Initialization, Build ]
     if: (!cancelled()) && (needs.Build.result == 'success')
     runs-on: [ ubuntu-latest ]
