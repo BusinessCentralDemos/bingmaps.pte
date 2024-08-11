@@ -103,8 +103,8 @@ jobs:
         run: |
           $settings = $env:Settings | ConvertFrom-Json
           $settings.artifact = 'https://bcartifacts-exdbf9fwegejdqak.b02.azurefd.net/sandbox/24.3.21374.22729/us'
-          $env:artifact = $settings.artifact
-          $env:Settings = $settings | ConvertTo-Json -Compress -Depth 99
+          Add-Content -Encoding UTF8 -Path $env:GITHUB_ENV -Value "Settings=$($$settings | ConvertTo-Json -Depth 99 -Compress)"
+          Add-Content -Encoding UTF8 -Path $env:GITHUB_ENV -Value "artifact=$($settings.artifact)"
 
       - name: Read secrets
         id: ReadSecrets
