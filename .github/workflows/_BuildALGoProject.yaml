@@ -101,10 +101,10 @@ jobs:
 
       - name: CustomStep-ModifySettings
         run: |
-          $settings = $env:settings | ConvertFrom-Json -depth 99
+          $settings = $env:Settings | ConvertFrom-Json
           $settings.artifact = 'https://bcartifacts-exdbf9fwegejdqak.b02.azurefd.net/sandbox/24.3.21374.22729/us'
           $env:artifact = $settings.artifact
-          $env:settings = $settings | ConvertTo-Json -compress
+          $env:Settings = $settings | ConvertTo-Json -Compress -Depth 99
 
       - name: Read secrets
         id: ReadSecrets
