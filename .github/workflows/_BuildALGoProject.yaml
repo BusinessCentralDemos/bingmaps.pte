@@ -99,6 +99,13 @@ jobs:
           project: ${{ inputs.project }}
           get: useCompilerFolder,keyVaultCodesignCertificateName,doNotSignApps,doNotRunTests,artifact,generateDependencyArtifact
 
+      - name: CustomStep-ModifySettings
+        run: |
+          $settings = $env:settings | ConvertFrom-Json -depth 99
+          $settings.artifact = 'https://bcartifacts-exdbf9fwegejdqak.b02.azurefd.net/sandbox/24.3.21374.22729/us'
+          $env:artifact = $settings.artifact
+          $env:settings = $settings | ConvertTo-Json -compress
+
       - name: Read secrets
         id: ReadSecrets
         if: github.event_name != 'pull_request'
