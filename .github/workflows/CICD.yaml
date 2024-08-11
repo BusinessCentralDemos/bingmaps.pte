@@ -336,11 +336,11 @@ jobs:
           telemetryScopeJson: ${{ needs.Initialization.outputs.telemetryScopeJson }}
           currentJobContext: ${{ toJson(job) }}
 
-  CustomJob-PostProcess:
-    needs: [ Initialization, Build, Deploy, Deliver, DeployALDoc ]
-    if: (!success())
+  CustomJob-CreateBuildTag:
+    needs: [ Initialization, Build ]
+    if: (!cancelled()) && needs.Build.result == 'Success'
     runs-on: [ ubuntu-latest ]
     steps:
-      - name: My PostProcess
+      - name: Create Tag
         run: |
-          Write-Host "Post process"
+          Write-Host "Create Tag"
