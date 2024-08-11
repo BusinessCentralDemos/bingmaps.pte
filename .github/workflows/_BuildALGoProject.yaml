@@ -70,7 +70,7 @@ on:
 
 permissions:
   actions: read
-  contents: read
+  contents: write
   id-token: write
 
 env:
