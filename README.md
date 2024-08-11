@@ -17,7 +17,7 @@ For more information see the [Code of Conduct FAQ](https://opensource.microsoft.
 contact [opencode@microsoft.com](mailto:opencode@microsoft.com) with any additional questions or comments.
 
 
-> [!NOTE]
+> [!INFO]
 > All custom jobs will be moved to the tail of the yaml file when running Update AL-Go System Files, but dependencies to/from the custom jobs will be maintained.
 
 ## Trademarks
