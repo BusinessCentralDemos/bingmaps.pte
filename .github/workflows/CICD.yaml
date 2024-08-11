@@ -319,7 +319,7 @@ jobs:
           artifacts: '.artifacts'
 
   PostProcess:
-    needs: [ Initialization, Build, Deploy, Deliver, DeployALDoc, CustomJob-PostProcess ]
+    needs: [ Initialization, Build, Deploy, Deliver, DeployALDoc, CustomJob-CreateBuildTag ]
     if: (!cancelled())
     runs-on: [ ubuntu-latest ]
     steps:
@@ -338,7 +338,7 @@ jobs:
 
   CustomJob-CreateBuildTag:
     needs: [ Initialization, Build ]
-    if: (!cancelled()) && needs.Build.result == 'Success'
+    if: (!cancelled()) && (needs.Build.result == 'success' || needs.Build.result == 'skipped')
     runs-on: [ ubuntu-latest ]
     steps:
       - name: Create Tag
