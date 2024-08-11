@@ -8,7 +8,6 @@
   "shell": "pwsh",
   "githubRunner": "ubuntu-latest",
   "githubRunnerShell": "pwsh",
-  "UpdateDependencies": true,
   "useCompilerFolder": true,
   "SkipUpgrade": true,
   "ApplicationDependency": "21.0.0.0",
