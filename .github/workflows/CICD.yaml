@@ -146,7 +146,7 @@ jobs:
         uses: freddydk/AL-Go/Actions/CheckForUpdates@customize
         with:
           shell: pwsh
-          token: ${{ fromJson(steps.ReadSecrets.outputs.Secrets).ghTokenWorkflow }}
+          ghTokenWorkflow: ${{ fromJson(steps.ReadSecrets.outputs.Secrets).ghTokenWorkflow }}
           templateUrl: ${{ env.templateUrl }}
           downloadLatest: true
 
