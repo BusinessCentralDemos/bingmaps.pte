@@ -99,7 +99,7 @@ jobs:
         with:
           shell: pwsh
           gitHubSecrets: ${{ toJson(secrets) }}
-          getSecrets: 'TokenForPush'
+          getSecrets: 'TokenForPush,GhTokenWorkflow'
           useGhTokenWorkflowForPush: '${{ github.event.inputs.useGhTokenWorkflow }}'
 
       - name: Determine Projects
@@ -112,6 +112,7 @@ jobs:
         uses: freddydk/AL-Go/Actions/CheckForUpdates@customize
         with:
           shell: pwsh
+          token: ${{ fromJson(steps.ReadSecrets.outputs.Secrets).ghTokenWorkflow }}
           templateUrl: ${{ env.templateUrl }}
           downloadLatest: true
 
