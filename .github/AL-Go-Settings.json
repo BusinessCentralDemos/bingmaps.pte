@@ -17,12 +17,5 @@
   "DeployToMy": {
     "EnvironmentType": "Test"
   },
-  "unusedALGoSystemFiles": [
-    "AddExistingAppOrTestApp.yaml",
-    "CreateApp.yaml",
-    "CreatePerformanceTestApp.yaml",
-    "CreateTestApp.yaml",
-    "cloudDevEnv.ps1"
-  ],
   "templateSha": "a091a352b698de490fa79755aa0eb3bf2496240c"
 }
